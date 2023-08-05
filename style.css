@@ -1,0 +1,158 @@
+:root {
+  --white-w: 22.5px;
+  --white-h: 150px;
+  --black-w: 11.25px;
+  --black-h: 90px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(45deg, #bbb, #ddd);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.outer-container {
+  background: linear-gradient(45deg, #222, #444);
+  border-radius: 10px;
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  width: min(90%, 1600px);
+  height: auto;
+}
+
+.piano-controls {
+  display: flex;
+}
+
+.piano-controls #chord {
+  align-self: center;
+  color: #fff;
+  flex: 1;
+  font: 600 16px/1.5 'Helvetica', sans-serif;
+}
+
+.piano-controls #chord-name {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font: 400 16px/1.5 'Helvetica', sans-serif;
+  margin-right: 16px;
+  outline: none;
+  padding: 4px 8px;
+  width: 150px;
+}
+
+.piano-controls #chord-submit {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  font: 600 16px/1.5 'Helvetica', sans-serif;
+  outline: none;
+  padding: 4px 12px;
+}
+
+.piano {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.octave {
+  cursor: pointer;
+  display: flex;
+  position: relative;
+}
+
+.key.white {
+  background-color: #fff;
+  border-width: 1px 1px 1px 0;
+  border-style: solid;
+  border-color: #222;
+  width: var(--white-w);
+  height: var(--white-h);
+  transition: background-color .3s ease;
+}
+
+.key.white:hover {
+  background-color: #ddd;
+}
+
+.octave:first-child .key.white:first-child {
+  border-width: 1px;
+}
+
+.key.black {
+  background-color: #222;
+  border: 1px solid #222;
+  position: absolute;
+  left: var(--left);
+  width: var(--black-w);
+  height: var(--black-h);
+  transition: background-color .3s ease;
+}
+
+.key.black:hover {
+  background-color: #777;
+}
+
+.key.white.selected,
+.key.black.selected {
+  background-color: #fe7066;
+}
+
+#chord-list {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  flex: 1;
+  height: 200px;
+  overflow: scroll;
+  padding: 4px;
+}
+
+.chord {
+  border-radius: 2px;
+  padding: 4px 6px;
+  /* margin-bottom: 4px; */
+}
+
+.chord-name,
+.chord-keys {
+  pointer-events: none;
+}
+
+.chord-name {
+  color: #222;
+  font: 500 14px/22px 'Helvetica', sans-serif;
+}
+
+.chord-name.untitled {
+  color: #666;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.chord-keys {
+  color: #444;
+  font: 300 10px/12px 'Helvetica', sans-serif;
+}
+
+.chord:hover {
+  background-color: #eee;
+}
+
+.chord.selected-preview {
+  background-color: #eee;
+}
+
+.key.white.selected-preview,
+.key.black.selected-preview {
+  background-color: red;
+}
